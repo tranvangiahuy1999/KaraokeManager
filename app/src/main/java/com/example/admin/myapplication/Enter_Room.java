@@ -71,7 +71,6 @@ public class Enter_Room extends AppCompatActivity {
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
         final Cursor cursor = databaseAccess.getSnackMoney(snack.getSnack_id());
-
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
