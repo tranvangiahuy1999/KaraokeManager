@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <View style="@style/Divider"/>
+
+    <TextView
+        android:id="@+id/textRoomPop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:text="" />
+
+    <View style="@style/Divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/azure">
+
+        <TextView
+            android:id="@+id/textTimeIn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Thời gian vào: 00:00:00"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <View style="@style/Divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:background="@color/silver">
+
+        <Button
+            android:id="@+id/openBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:text="MỞ PHÒNG" />
+
+        <View style="@style/DividerHor"/>
+
+        <Button
+            android:id="@+id/bookBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:text="ĐẶT PHÒNG" />
+
+        <View style="@style/DividerHor"/>
+
+        <Button
+            android:id="@+id/payBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:background="@color/orange"
+            android:text="TÍNH TIỀN" />
+    </LinearLayout>
+
+    <View style="@style/Divider"/>
+
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/azure">
+
+    <View style="@style/Divider"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="CHI TIẾT HOÁ ĐƠN"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/cardview_light_background"
+        android:background="@color/colorPrimary"/>
+
+    <View style="@style/Divider"/>
+
+    <TextView
+        android:id="@+id/paymentIdView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:text="MÃ ĐƠN HÀNG:" />
+
+    <TextView
+        android:id="@+id/customerIdView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:text="MÃ KHÁCH HÀNG:" />
+
+    <TextView
+        android:id="@+id/bookIdView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:text="MÃ ĐẶT PHÒNG:" />
+
+    <TextView
+        android:id="@+id/timeCreateView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:text="GIỜ XUẤT HOÁ ĐƠN:" />
+
+    <TextView
+        android:id="@+id/paymentTotalView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="TỔNG THANH TOÁN:" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:text="TRỞ VỀ"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/login_custom_button"
+        android:padding="10dp"
+        />
+
+    <View style="@style/Divider"/>
+</LinearLayout>

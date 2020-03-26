@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_login"
+    android:gravity="center"
+
+    tools:context="com.example.admin.myapplication.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/login_icon"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:textStyle="bold"
+        android:text="Phần mềm quản lý Karaoke"
+        android:textColor="#F8F6F6"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:hint="TÊN ĐĂNG NHẬP"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="MẬT KHẨU"
+        android:textSize="16sp"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ĐĂNG NHẬP"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:background="@drawable/login_custom_button"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:text="® 2019 My Log in Form. All rights reserved | Design by Boonrealcure"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
