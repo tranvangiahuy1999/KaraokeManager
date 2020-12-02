@@ -17,15 +17,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.adapter.RoomListAdapter;
-import com.example.admin.myapplication.database.DatabaseAccess;
-import com.example.admin.myapplication.Enter_Room;
-import com.example.admin.myapplication.objects.room;
+import com.example.admin.myapplication.data_access.DatabaseAccess;
+import com.example.admin.myapplication.activity.Enter_Room;
+import com.example.admin.myapplication.model.room;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -73,7 +72,7 @@ public class Fragment_roomMap extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Object o = gridView.getItemAtPosition(position);
-                final room room = (com.example.admin.myapplication.objects.room) o;
+                final room room = (com.example.admin.myapplication.model.room) o;
                 showRoomOption(room);
                 clickButton(room);
             }

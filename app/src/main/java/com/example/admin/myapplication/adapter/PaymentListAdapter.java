@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.admin.myapplication.R;
-import com.example.admin.myapplication.objects.payment;
+import com.example.admin.myapplication.model.payment;
 
 import java.util.ArrayList;
 

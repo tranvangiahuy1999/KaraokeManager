@@ -1,4 +1,4 @@
-package com.example.admin.myapplication;
+package com.example.admin.myapplication.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.admin.myapplication.database.DatabaseAccess;
+import com.example.admin.myapplication.R;
+import com.example.admin.myapplication.data_access.DatabaseAccess;
 
 public class Account_Manager_Activity extends AppCompatActivity {
     EditText usernameView, passwordView;

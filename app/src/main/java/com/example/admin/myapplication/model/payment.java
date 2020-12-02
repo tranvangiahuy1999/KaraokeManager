@@ -1,4 +1,4 @@
-package com.example.admin.myapplication.objects;
+package com.example.admin.myapplication.model;
 
 public class payment {
     int customer_id,book_id;

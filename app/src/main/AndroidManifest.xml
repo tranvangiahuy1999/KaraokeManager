@@ -13,11 +13,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".fragment.Fragment_roomMap">
         </activity>
-        <activity android:name=".WorkplaceActivity" />
-        <activity android:name=".Enter_Room" />
-        <activity android:name=".Account_Manager_Activity" />
-        <activity android:name=".Customer_Manager_Activity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.WorkplaceActivity" />
+        <activity android:name=".activity.Enter_Room" />
+        <activity android:name=".activity.Account_Manager_Activity" />
+        <activity android:name=".activity.Customer_Manager_Activity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

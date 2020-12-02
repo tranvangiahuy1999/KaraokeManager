@@ -1,8 +1,6 @@
-package com.example.admin.myapplication;
+package com.example.admin.myapplication.activity;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -18,9 +16,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.adapter.SnacksListAdapter;
-import com.example.admin.myapplication.database.DatabaseAccess;
-import com.example.admin.myapplication.objects.snacks;
+import com.example.admin.myapplication.data_access.DatabaseAccess;
+import com.example.admin.myapplication.model.snacks;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,7 @@ public class Enter_Room extends AppCompatActivity {
     ArrayList<snacks> snacksList;
     TextView textRoomNameInfo, timeInView, roomPayView, snackPayView, sumPayView;
     Button changeRoomInfoBtn, payRoomInfoBtn, exitRoomInfoBtn;
-    com.example.admin.myapplication.objects.room room;
+    com.example.admin.myapplication.model.room room;
     Dialog quantityDialog;
     EditText quantityOrderView;
     Button addBtn;
@@ -43,7 +42,7 @@ public class Enter_Room extends AppCompatActivity {
 
         snacksList = new ArrayList<>();
 
-        room = (com.example.admin.myapplication.objects.room) getIntent().getSerializableExtra("room");
+        room = (com.example.admin.myapplication.model.room) getIntent().getSerializableExtra("room");
         addControls();
         addView();
         onClickListView();

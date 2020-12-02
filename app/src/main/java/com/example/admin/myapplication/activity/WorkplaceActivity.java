@@ -1,5 +1,6 @@
-package com.example.admin.myapplication;
+package com.example.admin.myapplication.activity;
 
+import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.adapter.MainViewPagerAdapter;
 import com.example.admin.myapplication.fragment.Fragment_roomMap;
 import com.example.admin.myapplication.fragment.Fragment_opTion;

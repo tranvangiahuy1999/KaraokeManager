@@ -1,4 +1,4 @@
-package com.example.admin.myapplication.database;
+package com.example.admin.myapplication.data_access;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.admin.myapplication.objects.room;
+import com.example.admin.myapplication.model.room;
 
 public class DatabaseAccess {
 

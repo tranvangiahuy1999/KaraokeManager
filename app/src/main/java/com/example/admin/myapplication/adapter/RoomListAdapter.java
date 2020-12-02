@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.admin.myapplication.R;
-import com.example.admin.myapplication.objects.room;
+import com.example.admin.myapplication.model.room;
 
 import java.util.ArrayList;
 

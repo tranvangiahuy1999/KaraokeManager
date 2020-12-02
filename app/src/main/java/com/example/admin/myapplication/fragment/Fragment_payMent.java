@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.adapter.PaymentListAdapter;
-import com.example.admin.myapplication.database.DatabaseAccess;
-import com.example.admin.myapplication.objects.payment;
+import com.example.admin.myapplication.data_access.DatabaseAccess;
+import com.example.admin.myapplication.model.payment;
 
 import java.util.ArrayList;
 

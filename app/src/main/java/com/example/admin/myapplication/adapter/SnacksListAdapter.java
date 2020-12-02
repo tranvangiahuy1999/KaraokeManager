@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.admin.myapplication.R;
-import com.example.admin.myapplication.objects.snacks;
+import com.example.admin.myapplication.model.snacks;
 
 import java.util.ArrayList;
 

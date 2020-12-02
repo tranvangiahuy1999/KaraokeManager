@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KaraokeManager.iml" filepath="$PROJECT_DIR$/KaraokeManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KaraokeManager-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KaraokeManager-app.iml" group="KaraokeManager/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/react-native-KaraokeManager.iml" filepath="$PROJECT_DIR$/.idea/modules/react-native-KaraokeManager.iml" group="KaraokeManager" />
     </modules>
   </component>
 </project>

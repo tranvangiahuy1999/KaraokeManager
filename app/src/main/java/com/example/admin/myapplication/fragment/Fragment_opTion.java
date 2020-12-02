@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.admin.myapplication.Account_Manager_Activity;
-import com.example.admin.myapplication.Customer_Manager_Activity;
-import com.example.admin.myapplication.MainActivity;
+import com.example.admin.myapplication.activity.Account_Manager_Activity;
+import com.example.admin.myapplication.activity.Customer_Manager_Activity;
+import com.example.admin.myapplication.activity.MainActivity;
 import com.example.admin.myapplication.R;
 
 public class Fragment_opTion extends Fragment {

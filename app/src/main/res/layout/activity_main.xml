@@ -8,7 +8,7 @@
     android:background="@drawable/background_login"
     android:gravity="center"
 
-    tools:context="com.example.admin.myapplication.MainActivity">
+    tools:context="com.example.admin.myapplication.activity.MainActivity">
 
     <ImageView
         android:id="@+id/imageView4"
