@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 //    public static final String KEY_USERNAME = "username";
 //    public static final String KEY_PASSWORD = "password";
 
+// hang 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
