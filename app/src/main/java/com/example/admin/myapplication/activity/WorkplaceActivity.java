@@ -2,9 +2,9 @@ package com.example.admin.myapplication.activity;
 
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.adapter.MainViewPagerAdapter;
-import com.example.admin.myapplication.fragment.Fragment_roomMap;
-import com.example.admin.myapplication.fragment.Fragment_opTion;
-import com.example.admin.myapplication.fragment.Fragment_payMent;
+import com.example.admin.myapplication.fragment.roomap_fragment;
+import com.example.admin.myapplication.fragment.option_fragment;
+import com.example.admin.myapplication.fragment.payment_fragment;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -31,9 +31,9 @@ public class WorkplaceActivity extends AppCompatActivity {
 
     public void viewPagerController(){
         MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
-        mainViewPagerAdapter.addFragment(new Fragment_roomMap(),"SƠ ĐỒ");
-        mainViewPagerAdapter.addFragment(new Fragment_payMent(), "HOÁ ĐƠN");
-        mainViewPagerAdapter.addFragment(new Fragment_opTion(),"TUỲ CHỌN");
+        mainViewPagerAdapter.addFragment(new roomap_fragment(),"SƠ ĐỒ");
+        mainViewPagerAdapter.addFragment(new payment_fragment(), "HOÁ ĐƠN");
+        mainViewPagerAdapter.addFragment(new option_fragment(),"TUỲ CHỌN");
         viewPager.setAdapter(mainViewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0).setIcon(R.drawable.map);

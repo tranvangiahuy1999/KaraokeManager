@@ -21,7 +21,6 @@ public class SnacksListAdapter extends BaseAdapter {
         this.context = aContext;
         this.snacksList = snacksList;
         layoutInflater = LayoutInflater.from(aContext);
-
     }
 
     @Override

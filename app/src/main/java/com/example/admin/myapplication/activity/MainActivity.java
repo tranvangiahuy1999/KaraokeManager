@@ -11,18 +11,20 @@ import android.widget.Toast;
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.data_access.DatabaseAccess;
 import com.example.admin.myapplication.model.account;
+import com.example.admin.myapplication.model.room;
+import com.example.admin.myapplication.model.snacks;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
 //    public static final String TAG = MainActivity.class.getSimpleName();
-
+    account account;
     EditText userName;
     EditText passWord;
     Button loGin;
     ProgressDialog pDialog;
-    ArrayList<account> accountList;
 
 //    public static final String URL_LOGIN = "https://tranvangiahuy1999.000webhostapp.com/KaraokeManager/Scripts/login.php";
 //    public static final String KEY_USERNAME = "username";
@@ -32,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        account = new account(1, "admin", "123456");
         addControls();
         addClickEvent();
     }
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Log in...");
         pDialog.setCanceledOnTouchOutside(false);
+
     }
 
     private void addClickEvent(){
@@ -55,13 +57,12 @@ public class MainActivity extends AppCompatActivity {
                 String password = passWord.getText().toString();
 
                 DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
-
                 databaseAccess.open();
+
                 boolean cursor = databaseAccess.checkAccount(username, password);
 
                 if(chkEditText(userName) && chkEditText(passWord)){
                     if(cursor){
-                        accountList = new ArrayList<>();
                         Intent intent = new Intent(MainActivity.this, WorkplaceActivity.class);
                         startActivity(intent);
                         finish();
@@ -69,11 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Tài khoản của bạn không tồn tại",Toast.LENGTH_SHORT).show();
                     }
                 }
-
+                databaseAccess.close();
             }
         });
     }
-
     private boolean chkEditText(EditText editText) {
         if (editText.getText().toString().trim().length() > 0)
             return true;

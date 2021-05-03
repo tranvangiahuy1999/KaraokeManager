@@ -12,9 +12,10 @@
         <TextView
             android:id="@+id/textRoomNameInfo"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
             android:text=""
-            android:textSize="25sp"
+            android:textSize="18sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/white"
@@ -32,7 +33,8 @@
                 <TextView
                     android:id="@+id/textOrderInfo"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
                     android:layout_gravity="center"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -49,7 +51,7 @@
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textAlignment="center"
@@ -60,7 +62,7 @@
 
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textAlignment="center"
@@ -71,7 +73,7 @@
 
                     <TextView
                         android:id="@+id/textView14"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textAlignment="center"
@@ -93,7 +95,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="2.6"
             android:orientation="vertical"
             android:background="@color/silver"
             >
@@ -117,37 +119,27 @@
             <TextView
                 android:id="@+id/timeInView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/black"
-                android:text="Thời gian vào:"
-                android:textSize="18sp"
-                android:layout_margin="5dp"/>
-
-            <TextView
-                android:id="@+id/roomPayView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/black"
-                android:text="Tiền phòng:"
+                android:text="Thời gian mở:"
                 android:textSize="18sp"
                 android:layout_margin="5dp"/>
 
             <TextView
                 android:id="@+id/snackPayView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/black"
-                android:text="Tiền sản phẩm:"
+                android:text="Tổng sản phẩm:"
                 android:textSize="18sp"
                 android:layout_margin="5dp"/>
 
             <TextView
                 android:id="@+id/sumPayView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:text="Tổng thanh toán"
@@ -157,28 +149,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1.5"
+                android:layout_weight="1"
                 android:orientation="horizontal"
                 android:baselineAligned="false"
                 android:background="@color/silver">
 
                 <Button
-                    android:id="@+id/changeRoomInfoBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/blue"
-                    android:textColor="@color/white"
-                    android:layout_gravity="bottom"
-                    android:text="Chuyển phòng" />
-
-                <View style="@style/DividerHor"/>
-
-                <Button
                     android:id="@+id/payRoomInfoBtn"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:padding="4dp"
                     android:textColor="@color/white"
                     android:background="@color/orange"
                     android:layout_gravity="bottom"
@@ -188,13 +171,16 @@
 
                 <Button
                     android:id="@+id/exitRoomInfoBtn"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textColor="@color/red"
-                    android:background="@color/white"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:background="@color/red"
                     android:layout_gravity="bottom"
-                    android:text="Thoát" />
+                    android:text="Trở về" />
             </LinearLayout>
 
         </LinearLayout>

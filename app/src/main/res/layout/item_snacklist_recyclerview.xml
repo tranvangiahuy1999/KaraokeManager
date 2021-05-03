@@ -11,30 +11,30 @@
         android:id="@+id/snackIdView"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:textAlignment="center"
         android:layout_weight="1"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="51702115" />
 
     <TextView
         android:id="@+id/snackNameView"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:textAlignment="center"
         android:layout_weight="1"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="Cá kho với hột vịt muối" />
 
     <TextView
         android:id="@+id/snackPriceView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_weight="1"
         android:layout_gravity="center"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="300000 vnd" />
 
 </LinearLayout>

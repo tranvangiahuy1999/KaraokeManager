@@ -15,7 +15,7 @@ import com.example.admin.myapplication.activity.Customer_Manager_Activity;
 import com.example.admin.myapplication.activity.MainActivity;
 import com.example.admin.myapplication.R;
 
-public class Fragment_opTion extends Fragment {
+public class option_fragment extends Fragment {
 
     View viewSetting;
     Button accountManagerBtn,customerManagerBtn,signOutBtn;

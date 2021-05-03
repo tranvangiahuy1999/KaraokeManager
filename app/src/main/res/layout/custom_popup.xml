@@ -17,7 +17,7 @@
         android:gravity="center"
         android:layout_weight="1"
         android:textColor="@color/white"
-        android:text="" />
+        android:text="Thông tin nhận phòng" />
 
     <View style="@style/Divider"/>
 
@@ -26,16 +26,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:background="@color/azure">
+        android:background="@color/silver">
 
-        <TextView
-            android:id="@+id/textTimeIn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Thời gian vào: 00:00:00"
-            android:textColor="@color/black" />
     </LinearLayout>
     <View style="@style/Divider"/>
 
@@ -55,18 +47,6 @@
             android:layout_weight="1"
             android:textSize="14sp"
             android:text="MỞ PHÒNG" />
-
-        <View style="@style/DividerHor"/>
-
-        <Button
-            android:id="@+id/bookBtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:background="@color/green"
-            android:text="ĐẶT PHÒNG" />
 
         <View style="@style/DividerHor"/>
 
