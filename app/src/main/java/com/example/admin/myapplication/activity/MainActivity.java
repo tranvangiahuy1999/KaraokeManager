@@ -59,18 +59,17 @@ public class MainActivity extends AppCompatActivity {
                 DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
 
                 databaseAccess.open();
-                boolean cursor = databaseAccess.checkAccount(username, password);
+//                boolean cursor = databaseAccess.checkAccount(username, password);
 
-                if(chkEditText(userName) && chkEditText(passWord)){
-                    if(cursor){
+//                if(chkEditText(userName) && chkEditText(passWord)){
+//                    if(cursor){
                         accountList = new ArrayList<>();
                         Intent intent = new Intent(MainActivity.this, WorkplaceActivity.class);
                         startActivity(intent);
                         finish();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Tài khoản của bạn không tồn tại",Toast.LENGTH_SHORT).show();
-                    }
-                }
+//                    } else {
+//                        Toast.makeText(getApplicationContext(), "Tài khoản của bạn không tồn tại",Toast.LENGTH_SHORT).show();
+//                    }
 
             }
         });
