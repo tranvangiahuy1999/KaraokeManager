@@ -20,7 +20,7 @@ import com.example.admin.myapplication.model.payment;
 import java.util.ArrayList;
 
 
-public class Fragment_payMent extends Fragment {
+public class payment_fragment extends Fragment {
 
     View viewStore;
     Context mContext;

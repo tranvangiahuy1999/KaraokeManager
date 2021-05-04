@@ -9,10 +9,11 @@
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
         android:text="QUẢN LÝ KHÁCH HÀNG"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/cardview_light_background"
@@ -21,7 +22,8 @@
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:gravity="center"
@@ -32,8 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_margin="10dp"
-        android:textSize="18sp"
+        android:layout_margin="6dp"
+        android:textSize="16sp"
         android:hint="Tên khách hàng" />
 
     <EditText
@@ -41,8 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_margin="10dp"
-        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
         android:hint="Số điện thoại" />
 
     <EditText
@@ -50,19 +52,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_margin="10dp"
-        android:textSize="18sp"
+        android:layout_margin="6dp"
+        android:textSize="16sp"
         android:hint="Địa chỉ khách hàng" />
 
     <Button
         android:id="@+id/addCusBtn"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/login_custom_button"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textColor="@color/white"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="6dp"
+        android:padding="4dp"
         android:text="THÊM KHÁCH HÀNG" />
 
 </LinearLayout>

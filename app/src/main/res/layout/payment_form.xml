@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="CHI TIẾT HOÁ ĐƠN"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/cardview_light_background"
@@ -26,64 +26,53 @@
     <TextView
         android:id="@+id/paymentIdView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColor="@color/black"
         android:layout_margin="10dp"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="MÃ ĐƠN HÀNG:" />
 
     <TextView
         android:id="@+id/customerIdView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColor="@color/black"
         android:layout_margin="10dp"
-        android:textSize="18sp"
-        android:text="MÃ KHÁCH HÀNG:" />
-
-    <TextView
-        android:id="@+id/bookIdView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textColor="@color/black"
-        android:layout_margin="10dp"
-        android:textSize="18sp"
-        android:text="MÃ ĐẶT PHÒNG:" />
+        android:textSize="16sp"
+        android:text="TÊN KHÁCH HÀNG:" />
 
     <TextView
         android:id="@+id/timeCreateView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColor="@color/black"
         android:layout_margin="10dp"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:text="GIỜ XUẤT HOÁ ĐƠN:" />
 
     <TextView
         android:id="@+id/paymentTotalView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_margin="10dp"
-        android:textSize="18sp"
+        android:layout_margin="6dp"
+        android:textSize="16sp"
         android:textColor="@color/black"
         android:text="TỔNG THANH TOÁN:" />
 
     <Button
         android:id="@+id/backBtn"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="TRỞ VỀ"
         android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_marginBottom="5dp"
+        android:textSize="16sp"
         android:background="@drawable/login_custom_button"
-        android:padding="10dp"
+        android:layout_margin="2dp"
         />
 
     <View style="@style/Divider"/>

@@ -42,7 +42,7 @@ public class DatabaseAccess {
     }
 
     public boolean checkAccount(String username, String password){
-        cursor = db.rawQuery("select username from account where username = '" + username + "' and password = '" + password + "'",new String[]{});
+        cursor = db.rawQuery("select * from account where username = '" + username + "' and password = '" + password + "'",new String[]{});
         if(cursor.getCount()>0){
             return true;
         } else {
@@ -81,27 +81,67 @@ public class DatabaseAccess {
         return cursor;
     }
 
+    public Cursor getRoomTimeIn(int roomId){
+        cursor = db.rawQuery("select timeIn from room where room_id='" + roomId + "'", null);
+        return cursor;
+    }
+
+    public Cursor getCustomerById(int id) {
+        cursor = db.rawQuery("select customer_name from customer where customer_id = '" + id + "'", null);
+        return cursor;
+    }
+
     public Cursor viewSnackData(){
         cursor = db.rawQuery("select * from snacks", null);
         return cursor;
     }
 
-    //Tạo thông tin đặt phòng - cập nhật thời gian rời phòng và thành tiền khi đóng phòng
-    public boolean insertReservationRoom(int customer_id, int room_id, String time_in, String time_out, float pay, room room){
-        ContentValues contentValues = new ContentValues();
+    public Cursor getRoomState(int roomId) {
+        cursor = db.rawQuery("select room_state from room where room_id='" + roomId + "'", null);
+        return cursor;
+    }
 
-        if (room.getRoomState() == 1) {
-            contentValues.put("customer_id", customer_id);
-            contentValues.put("room_id", room_id);
-            contentValues.put("time_in", time_in);
-        } else {
-            contentValues.put("time_out", time_out);
-            contentValues.put("pay", pay);
-        }
-        long result = db.insert("reservation", null, contentValues);
+    public Cursor getRoomTotalPayment(int roomId){
+        cursor = db.rawQuery("select total from room where room_id='" + roomId + "'", null);
+        return cursor;
+    }
+
+    public boolean updateTimeIn(int room_id, String timeIn){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("timeIn", timeIn);
+        long result = db.update("room", contentValues, "room_id = '" + room_id + "'", null);
         if(result == -1){
             return false;
-        } else{
+        } else {
+            return true;
+        }
+    }
+
+    public Cursor getRoomPriceByRoomType(int room_type) {
+        cursor = db.rawQuery("select type_price from room_type where type_id='" + room_type + "'", null);
+        return cursor;
+    }
+
+    public boolean updateRoomTotal(int room_id, float total){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("total", total);
+        long result = db.update("room", contentValues, "room_id = '" + room_id + "'", null);
+        if(result == -1){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean resetRoomTotal(int room_id, int state, String timeIn, float total){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("room_state", state);
+        contentValues.put("timeIn", timeIn);
+        contentValues.put("total", total);
+        long result = db.update("room", contentValues, "room_id = '" + room_id + "'", null);
+        if(result == -1){
+            return false;
+        } else {
             return true;
         }
     }
@@ -111,27 +151,6 @@ public class DatabaseAccess {
         ContentValues contentValues = new ContentValues();
         contentValues.put("room_state", room_state);
         long result = db.update("room", contentValues, "room_id = '" + room_id + "'", null);
-        if(result == -1){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    //Thống kê sản phẩm đã order
-    public Cursor viewOrderData(String payment_id){
-        cursor = db.rawQuery("select order_snack.snack_id,snack_name,SUM(quantity),SUM(pay_order) from snacks,order_snack where payment_id = '" + payment_id + "' and snacks.snack_id = order_snack.snack_id GROUP BY order_snack.snack_id,snack_name", null);
-        return cursor;
-    }
-
-    //Lưu hoá đơn sản phẩm
-    public boolean insertOrderData(String payment_id, int snack_id, int quantity, float pay_order){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("payment_id", payment_id);
-        contentValues.put("snack_id", snack_id);
-        contentValues.put("quantity", quantity);
-        contentValues.put("pay_order", pay_order);
-        long result = db.insert("order_snack", null, contentValues);
         if(result == -1){
             return false;
         } else {
@@ -180,4 +199,44 @@ public class DatabaseAccess {
         return cursor;
     }
 
+    //Lưu hoá đơn sản phẩm
+    public boolean insertOrderData(String payment_id, int snack_id, int quantity, float pay_order){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("payment_id", payment_id);
+        contentValues.put("snack_id", snack_id);
+        contentValues.put("quantity", quantity);
+        contentValues.put("pay_order", pay_order);
+        long result = db.insert("order_snack", null, contentValues);
+        if(result == -1){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //Thống kê sản phẩm đã order
+    public Cursor viewOrderData(String payment_id){
+        cursor = db.rawQuery("select order_snack.snack_id,snack_name,SUM(quantity),SUM(pay_order) from snacks,order_snack where payment_id = '" + payment_id + "' and snacks.snack_id = order_snack.snack_id GROUP BY order_snack.snack_id,snack_name", null);
+        return cursor;
+    }
+
+    //Tạo thông tin đặt phòng - cập nhật thời gian rời phòng và thành tiền khi đóng phòng
+    public boolean insertReservationRoom(int customer_id, int room_id, String time_in, String time_out, float pay, room room){
+        ContentValues contentValues = new ContentValues();
+
+        if (room.getRoomState() == 1) {
+            contentValues.put("customer_id", customer_id);
+            contentValues.put("room_id", room_id);
+            contentValues.put("time_in", time_in);
+        } else {
+            contentValues.put("time_out", time_out);
+            contentValues.put("pay", pay);
+        }
+        long result = db.insert("reservation", null, contentValues);
+        if(result == -1){
+            return false;
+        } else{
+            return true;
+        }
+    }
 }

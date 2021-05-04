@@ -11,7 +11,7 @@ public class room implements Serializable {
     private String timeIn;
     private float snackMoney;
 
-    public room(int roomID, String roomName, int typeID, int roomState, String timeIn, int snackMoney) {
+    public room(int roomID, String roomName, int typeID, int roomState, String timeIn, float snackMoney) {
         this.roomID = roomID;
         this.roomName = roomName;
         this.roomState = roomState;

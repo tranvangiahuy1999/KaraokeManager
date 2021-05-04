@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragment.Fragment_roomMap">
+        <activity android:name=".fragment.roomap_fragment">
         </activity>
         <activity android:name=".activity.WorkplaceActivity" />
         <activity android:name=".activity.Enter_Room" />
