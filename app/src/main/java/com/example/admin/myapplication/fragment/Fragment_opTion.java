@@ -14,6 +14,11 @@ import com.example.admin.myapplication.activity.Account_Manager_Activity;
 import com.example.admin.myapplication.activity.Customer_Manager_Activity;
 import com.example.admin.myapplication.activity.MainActivity;
 import com.example.admin.myapplication.R;
+import com.example.admin.myapplication.log.LogWriter;
+import com.example.admin.myapplication.model.account;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Fragment_opTion extends Fragment {
 
@@ -36,6 +41,10 @@ public class Fragment_opTion extends Fragment {
                 Intent intent = new Intent(mContext, MainActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+                String username = account.getInstance().getUsername();
+                SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy-hh:mm:ss");
+                String format = s.format(new Date());
+                LogWriter.getInstance().appendLog(mContext.getApplicationContext(),"Username: " + username + ",Activity: Logout,TimeStamp: " + format);
             }
         });
 
