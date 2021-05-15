@@ -9,10 +9,15 @@ import android.widget.Toast;
 
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.data_access.DatabaseAccess;
+import com.example.admin.myapplication.facade.FacadeImplement;
+
+import java.util.ArrayList;
 
 public class Customer_Manager_Activity extends AppCompatActivity {
     EditText cusnameView, phoneView, cusaddView;
     Button addCusBtn;
+    FacadeImplement facadeImplement = new FacadeImplement();
+    ArrayList<EditText> arrayEditText = new ArrayList<EditText>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,32 +32,13 @@ public class Customer_Manager_Activity extends AppCompatActivity {
         addCusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String cusName = cusnameView.getText().toString();
-                String cusPhone = phoneView.getText().toString();
-                String cusAddress = cusaddView.getText().toString();
-
-                if(chkEditText(cusnameView) && chkEditText(phoneView) && chkEditText(cusaddView)){
-                    DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
-                    databaseAccess.open();
-
-                    boolean cursor = databaseAccess.insertCustomer(cusName, cusPhone, cusAddress);
-
-                    if(cursor){
-                        Toast.makeText(getApplicationContext(), "Thêm khách hàng thành công", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
+                arrayEditText.add(cusnameView);
+                arrayEditText.add(phoneView);
+                arrayEditText.add(cusaddView);
+                DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
+                facadeImplement.addInformation(arrayEditText,"customer", databaseAccess, getApplicationContext());
             }
         });
 
-    }
-
-    private boolean chkEditText(EditText editText) {
-        if (editText.getText().toString().trim().length() > 0)
-            return true;
-        else {
-            editText.setError("Xin kiểm tra lại thông tin đã nhập");
-        }
-        return false;
     }
 }
