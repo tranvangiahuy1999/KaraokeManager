@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/azure">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="PHƯƠNG THỨC THANH TOÁN"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/cardview_light_background"
+        android:background="@color/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="6dp">
+
+        <RadioButton
+            android:id="@+id/paypalCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Paypal"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/creditCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Credit Card" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/paypalMethod"
+        android:layout_margin="6dp" >
+
+        <EditText
+            android:id="@+id/emailTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/passTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Password"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/creditcardMethod"
+        android:layout_margin="6dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/nameTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/cardnumberTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Card Number" />
+
+        <EditText
+            android:id="@+id/ccvTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="ccv"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/payAccept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_custom_button"
+        android:textColor="@color/white"
+        android:layout_margin="6dp"
+        android:text="Pay" />
+
+</LinearLayout>
