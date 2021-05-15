@@ -10,12 +10,13 @@ import android.widget.Toast;
 
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.data_access.DatabaseAccess;
+import com.example.admin.myapplication.fragment.Fragment_opTion;
 import com.example.admin.myapplication.model.account;
-import com.example.admin.myapplication.model.room;
-import com.example.admin.myapplication.model.snacks;
+import com.example.admin.myapplication.log.LogWriter;
 
-import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     EditText passWord;
     Button loGin;
     ProgressDialog pDialog;
+
 
 //    public static final String URL_LOGIN = "https://tranvangiahuy1999.000webhostapp.com/KaraokeManager/Scripts/login.php";
 //    public static final String KEY_USERNAME = "username";
@@ -68,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, WorkplaceActivity.class);
                         startActivity(intent);
                         finish();
+                        account.getInstance().setUsername(username);
+                        SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy-hh:mm:ss");
+                        String format = s.format(new Date());
+                        LogWriter.getInstance().appendLog(getApplicationContext(),"Username: " + username + ",Activity: Login,TimeStamp: " + format);
                     } else {
                         Toast.makeText(getApplicationContext(), "Tài khoản của bạn không tồn tại",Toast.LENGTH_SHORT).show();
                     }

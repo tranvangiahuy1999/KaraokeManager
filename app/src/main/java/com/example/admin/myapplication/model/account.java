@@ -1,23 +1,17 @@
 package com.example.admin.myapplication.model;
 
-
 public class account {
-    private int accountId;
     private String username;
-    private String password;
+    private static account instance;
 
-    public account(int accountId, String username, String password){
-        this.accountId = accountId;
-        this.username = username;
-        this.password = password;
+    private account(){
     }
 
-    public int getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
+    public static account getInstance(){
+        if(instance == null){
+            instance = new account();
+        }
+        return instance;
     }
 
     public String getUsername() {
@@ -26,13 +20,5 @@ public class account {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
