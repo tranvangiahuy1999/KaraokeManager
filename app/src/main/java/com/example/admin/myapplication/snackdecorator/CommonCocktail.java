@@ -9,11 +9,11 @@ public class CommonCocktail implements Cocktail {
 
     @Override
     public String getName() {
-        return "";
+        return "Cocktail ";
     }
 
     @Override
     public float getPrice() {
-        return 0;
+        return 20000;
     }
 }

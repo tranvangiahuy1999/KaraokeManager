@@ -7,16 +7,16 @@ public class PinaColadaCocktail implements Cocktail{
 
     public PinaColadaCocktail(Cocktail cocktail){
         this.cocktail = cocktail;
-        this.name = "PinaColadaCocktail";
+        this.name = "PinaColada";
         this.price = 100000;
     }
 
     public String getName() {
-        return name;
+        return cocktail.getName() + name;
     }
 
     public float getPrice() {
-        return price;
+        return cocktail.getPrice() + price;
     }
 
     @Override
