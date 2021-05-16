@@ -22,6 +22,11 @@ import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.adapter.SnacksListAdapter;
 import com.example.admin.myapplication.data_access.DatabaseAccess;
 import com.example.admin.myapplication.model.snacks;
+import com.example.admin.myapplication.snackdecorator.Cocktail;
+import com.example.admin.myapplication.snackdecorator.CommonCocktail;
+import com.example.admin.myapplication.snackdecorator.MojitoCocktail;
+import com.example.admin.myapplication.snackdecorator.PinaColadaCocktail;
+import com.example.admin.myapplication.snackdecorator.SangriaCocktail;
 
 import java.util.ArrayList;
 
@@ -92,6 +97,19 @@ public class Enter_Room extends AppCompatActivity {
             while (cursor.moveToNext()){
                 snacksList.add(new snacks(cursor.getInt(0), cursor.getString(1), cursor.getString(2),cursor.getFloat(3)));
             }
+
+            Cocktail mojitoCocktail = new MojitoCocktail(new CommonCocktail());
+
+            snacksList.add(new snacks(101, mojitoCocktail.getName(), "Mojito Cocktail", mojitoCocktail.getPrice()));
+
+            Cocktail pinaColadaCocktail = new PinaColadaCocktail(new CommonCocktail());
+
+            snacksList.add(new snacks(102, pinaColadaCocktail.getName(), "PinaColada Cocktail", pinaColadaCocktail.getPrice()));
+
+            Cocktail sangriaCocktail = new SangriaCocktail(new CommonCocktail());
+
+            snacksList.add(new snacks(102, sangriaCocktail.getName(), "SangriaCocktail Cocktail", sangriaCocktail.getPrice()));
+
 
             adapter = new SnacksListAdapter(this , snacksList);
             SnackListView.setAdapter(adapter);

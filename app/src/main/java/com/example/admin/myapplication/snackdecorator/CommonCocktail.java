@@ -6,4 +6,14 @@ public class CommonCocktail implements Cocktail {
     public String mixCocktail() {
         return "Cocktail";
     }
+
+    @Override
+    public String getName() {
+        return "";
+    }
+
+    @Override
+    public float getPrice() {
+        return 0;
+    }
 }
