@@ -16,10 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +26,6 @@ import com.example.admin.myapplication.data_access.DatabaseAccess;
 import com.example.admin.myapplication.activity.Enter_Room;
 import com.example.admin.myapplication.model.payment;
 import com.example.admin.myapplication.model.room;
-import com.example.admin.myapplication.payment.CreditCardStrategy;
-import com.example.admin.myapplication.payment.PaymentMethod;
-import com.example.admin.myapplication.payment.PaypalStrategy;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,14 +39,15 @@ public class roomap_fragment extends Fragment {
     GridView gridView;
     ArrayList<room> roomList;
     RoomListAdapter adapter;
-    Dialog roomDialog, paymentDialog, payMethodDialog;
+    Dialog roomDialog,paymentDialog;
 
-    TextView roomName, paymentIdView, customerIdView, timeCreateView, paymentTotalView;
-    Button openRoom, payRoom, backBtn, payAccept;
+    //Popup room option
+    TextView roomName;
+    Button openRoom, payRoom;
 
-    RadioButton paypalCheck, creditCheck;
-    EditText emailTextInput, passTextInput, nameTextInput, cardnumberTextInput, ccvTextInput;
-    LinearLayout paypalMethod, creditcardMethod;
+    //Popup payment info
+    TextView paymentIdView, customerIdView, timeCreateView, paymentTotalView;
+    Button backBtn;
 
     @Nullable
     @Override
@@ -109,85 +104,12 @@ public class roomap_fragment extends Fragment {
         roomName.setText(room.getRoomName());
     }
 
-    private void showPayMethod(String paymentID, float amount){
-        payMethodDialog = new Dialog(mContext);
-        payMethodDialog.setContentView(R.layout.payment_method);
-
-        paypalCheck = payMethodDialog.findViewById(R.id.paypalCheck);
-        creditCheck = payMethodDialog.findViewById(R.id.creditCheck);
-        emailTextInput = payMethodDialog.findViewById(R.id.emailTextInput);
-        passTextInput = payMethodDialog.findViewById(R.id.passTextInput);
-        nameTextInput = payMethodDialog.findViewById(R.id.nameTextInput);
-        cardnumberTextInput = payMethodDialog.findViewById(R.id.cardnumberTextInput);
-        ccvTextInput = payMethodDialog.findViewById(R.id.ccvTextInput);
-        payAccept = payMethodDialog.findViewById(R.id.payAccept);
-        paypalMethod = payMethodDialog.findViewById(R.id.paypalMethod);
-        creditcardMethod = payMethodDialog.findViewById(R.id.creditcardMethod);
-
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        int width = metrics.widthPixels;
-        int height = metrics.heightPixels;
-        payMethodDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        payMethodDialog.getWindow().setLayout((6 * width)/7, (4 * height)/5);
-        payMethodDialog.show();
-
-        paymentMethodOnClickListener(paymentID, amount);
-    }
-
-    private void paymentMethodOnClickListener(String paymentID, float amount){
-        paypalCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                creditCheck.setChecked(false);
-                paypalMethod.setVisibility(View.VISIBLE);
-                creditcardMethod.setVisibility(View.GONE);
-            }
-        });
-
-        creditCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                paypalCheck.setChecked(false);
-                creditcardMethod.setVisibility(View.VISIBLE);
-                paypalMethod.setVisibility(View.GONE);
-            }
-        });
-
-        payAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                payMethodDialog.dismiss();
-                if(paypalCheck.isChecked()){
-                    String email = emailTextInput.getText().toString().trim();
-                    String password = passTextInput.getText().toString().trim();
-
-                    if(email.length() > 0 && password.length() > 0){
-                        PaymentMethod paymethod = new PaymentMethod(new PaypalStrategy(email, password));
-                        paymethod.executeStrategy(amount);
-                        showPaymentInfo(paymentID, "Paypal");
-                    }
-                }
-                if(creditCheck.isChecked()){
-                    String name = nameTextInput.getText().toString().trim();
-                    String cardnumber = cardnumberTextInput.getText().toString().trim();
-                    String ccv = ccvTextInput.getText().toString().trim();
-
-                    if(name.length() > 0 && cardnumber.length() > 0 && ccv.length() > 0){
-                        PaymentMethod paymethod = new PaymentMethod(new CreditCardStrategy(name, cardnumber, ccv));
-                        paymethod.executeStrategy(amount);
-                        showPaymentInfo(paymentID, "Credit Card");
-                    }
-                }
-            }
-        });
-    }
-
-    private void showPaymentInfo(String paymentID, String method){
+    private void showPaymentInfo(String paymentID){
         paymentDialog = new Dialog(mContext);
         paymentDialog.setContentView(R.layout.payment_form);
         addControls2();
 
-        getPaymentInfo(paymentID, method);
+        getPaymentInfo(paymentID);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,7 +119,7 @@ public class roomap_fragment extends Fragment {
     }
 
     //get payment info from database
-    private void getPaymentInfo(String paymentID, String method){
+    private void getPaymentInfo(String paymentID){
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(mContext);
         databaseAccess.open();
 
@@ -208,7 +130,7 @@ public class roomap_fragment extends Fragment {
             if(customer_name.getCount()>0 && customer_name.moveToFirst()) {
                 paymentIdView.setText("MÃ ĐƠN HÀNG: " + cursor.getString(0));
                 customerIdView.setText("TÊN KHÁCH HÀNG: " + customer_name.getString(0));
-                timeCreateView.setText("PHƯƠNG THỨC: " + method);
+                timeCreateView.setText("GIỜ XUẤT HOÁ ĐƠN: " + cursor.getString(3));
                 paymentTotalView.setText("TỔNG THANH TOÁN: " + Float.toString(cursor.getFloat(4)));
             }
         }
@@ -319,8 +241,7 @@ public class roomap_fragment extends Fragment {
                             room.setTimeIn("00:00:00");
                             room.setRoomState(1);
 
-//                            showPaymentInfo(paymentID);
-                            showPayMethod(paymentID, roomtotal);
+                            showPaymentInfo(paymentID);
 
                             //Cập nhật hiển thị phòng
                             adapter.notifyDataSetChanged();
