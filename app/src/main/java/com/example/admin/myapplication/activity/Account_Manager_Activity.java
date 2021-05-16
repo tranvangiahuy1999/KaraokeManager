@@ -9,15 +9,22 @@ import android.widget.Toast;
 
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.data_access.DatabaseAccess;
+import com.example.admin.myapplication.facade.FacadeImplement;
+
+import java.util.ArrayList;
 
 public class Account_Manager_Activity extends AppCompatActivity {
     EditText usernameView, passwordView;
     Button addAccBtn;
+    FacadeImplement facadeImplement = new FacadeImplement();
+    ArrayList<EditText> arrayEditText = new ArrayList<EditText>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_manager);
+
 
         usernameView = findViewById(R.id.usernameView);
         passwordView = findViewById(R.id.passwordView);
@@ -26,31 +33,14 @@ public class Account_Manager_Activity extends AppCompatActivity {
         addAccBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = usernameView.getText().toString();
-                String password = passwordView.getText().toString();
-
-                if(chkEditText(usernameView) && chkEditText(passwordView)){
-                    DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
-                    databaseAccess.open();
-
-                    boolean cursor = databaseAccess.insertAccount(username, password);
-
-                    if(cursor){
-                        Toast.makeText(getApplicationContext(), "Thêm tài khoản thành công", Toast.LENGTH_SHORT).show();
-                    }
-                }
+                DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
+                arrayEditText.add(usernameView);
+                arrayEditText.add(passwordView);
+                facadeImplement.addInformation(arrayEditText,"account", databaseAccess,getApplicationContext());
 
             }
 
         });
     }
 
-    private boolean chkEditText(EditText editText) {
-        if (editText.getText().toString().trim().length() > 0)
-            return true;
-        else {
-            editText.setError("Xin kiểm tra lại thông tin đã nhập");
-        }
-        return false;
-    }
 }
