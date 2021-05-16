@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.admin.myapplication.R;
 import com.example.admin.myapplication.data_access.DatabaseAccess;
-import com.example.admin.myapplication.fragment.Fragment_opTion;
+import com.example.admin.myapplication.fragment.option_fragment;
 import com.example.admin.myapplication.model.account;
 import com.example.admin.myapplication.log.LogWriter;
 
@@ -21,7 +21,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
 //    public static final String TAG = MainActivity.class.getSimpleName();
-    account account;
+
     EditText userName;
     EditText passWord;
     Button loGin;
@@ -32,61 +32,60 @@ public class MainActivity extends AppCompatActivity {
 //    public static final String KEY_USERNAME = "username";
 //    public static final String KEY_PASSWORD = "password";
 
-// hang 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        account = new account(1, "admin", "123456");
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_main );
+
+
         addControls();
         addClickEvent();
     }
 
-    private void addControls(){
-        userName = findViewById(R.id.editText);
-        passWord = findViewById(R.id.editText2);
-        loGin = findViewById(R.id.button);
-        pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Log in...");
-        pDialog.setCanceledOnTouchOutside(false);
-
+    private void addControls() {
+        userName = findViewById( R.id.editText );
+        passWord = findViewById( R.id.editText2 );
+        loGin = findViewById( R.id.button );
+        pDialog = new ProgressDialog( this );
+        pDialog.setMessage( "Log in..." );
+        pDialog.setCanceledOnTouchOutside( false );
     }
 
-    private void addClickEvent(){
-        loGin.setOnClickListener(new View.OnClickListener() {
+    private void addClickEvent() {
+        loGin.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = userName.getText().toString();
                 String password = passWord.getText().toString();
 
-                DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
+                DatabaseAccess databaseAccess = DatabaseAccess.getInstance( getApplicationContext() );
+
                 databaseAccess.open();
+                boolean cursor = databaseAccess.checkAccount( username, password );
 
-                boolean cursor = databaseAccess.checkAccount(username, password);
-
-                if(chkEditText(userName) && chkEditText(passWord)){
-                    if(cursor){
-                        Intent intent = new Intent(MainActivity.this, WorkplaceActivity.class);
-                        startActivity(intent);
+                if (chkEditText( userName ) && chkEditText( passWord )) {
+                    if (cursor) {
+                        Intent intent = new Intent( MainActivity.this, WorkplaceActivity.class );
+                        startActivity( intent );
                         finish();
-                        account.getInstance().setUsername(username);
-                        SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy-hh:mm:ss");
-                        String format = s.format(new Date());
-                        LogWriter.getInstance().appendLog(getApplicationContext(),"Username: " + username + ",Activity: Login,TimeStamp: " + format);
+                        account.getInstance().setUsername( username );
+                        SimpleDateFormat s = new SimpleDateFormat( "dd/MM/yyyy-hh:mm:ss" );
+                        String format = s.format( new Date() );
+                        LogWriter.getInstance().appendLog( getApplicationContext(), "Username: " + username + ",Activity: Login,TimeStamp: " + format );
                     } else {
-                        Toast.makeText(getApplicationContext(), "Tài khoản của bạn không tồn tại",Toast.LENGTH_SHORT).show();
+                        Toast.makeText( getApplicationContext(), "Tài khoản của bạn không tồn tại", Toast.LENGTH_SHORT ).show();
                     }
                 }
-                databaseAccess.close();
+
             }
-        });
+        } );
     }
+
     private boolean chkEditText(EditText editText) {
         if (editText.getText().toString().trim().length() > 0)
             return true;
         else {
-            editText.setError("Xin kiểm tra lại thông tin đã nhập");
+            editText.setError( "Xin kiểm tra lại thông tin đã nhập" );
         }
         return false;
     }
